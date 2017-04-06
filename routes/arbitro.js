@@ -25,6 +25,11 @@ exports.register = (server, options, next) => {
             method: 'GET',
             path: '/arbitro/{id}',
             config: {
+                validate: {
+                    params: {
+                        id: Joi.number().integer().required().description('Arbitro Id')
+                    }
+                },
                 handler: getArbitroById
             }
         }
