@@ -8,7 +8,10 @@ let db = null;
 
 exports.register = (server, options, next) => {
     if (!db) {
-        const sequelize = new Sequelize('campeonatodb', 'postgres', '', {
+
+        var database = process.env.DATABASE_URL || 'campeonatodb'
+
+        const sequelize = new Sequelize(database, 'postgres', '', {
             host: 'localhost',
             dialect: 'postgres'});
 
