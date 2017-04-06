@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/leonardocintra/campeonato-api#readme",
   "dependencies": {
+    "boom": "^4.3.1",
     "hapi": "^16.1.1",
+    "joi": "^10.4.1",
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.30.4"
