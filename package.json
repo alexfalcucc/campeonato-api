@@ -1,0 +1,28 @@
+{
+  "name": "campeonato-api",
+  "version": "1.0.0",
+  "description": "API de campeonatos esportivos",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonardocintra/campeonato-api.git"
+  },
+  "keywords": [
+    "campeonato"
+  ],
+  "author": "Leonardo Nascimento Cintra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonardocintra/campeonato-api/issues"
+  },
+  "homepage": "https://github.com/leonardocintra/campeonato-api#readme",
+  "dependencies": {
+    "hapi": "^16.1.1",
+    "pg": "^6.1.5",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.4"
+  }
+}
