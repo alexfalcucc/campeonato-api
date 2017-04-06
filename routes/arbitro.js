@@ -5,8 +5,30 @@ const { arbitroShema } = require('../schemas');
 
 exports.register = (server, options, next) => {
     const {
-        createArbitro
+        createArbitro,
+        getArbitroById,
+        getArbitroCollection
     } = server.plugins['arbitro-route-handler'];
+
+    server.route([
+        {
+            method: 'GET',
+            path: '/arbitro',
+            config: {
+                handler: getArbitroCollection
+            }
+        }
+    ]);
+
+    server.route([
+        {
+            method: 'GET',
+            path: '/arbitro/{id}',
+            config: {
+                handler: getArbitroById
+            }
+        }
+    ]);
 
     server.route([
         {

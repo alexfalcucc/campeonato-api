@@ -15,6 +15,14 @@ server.register(Plugins, (err) => {
         console.log(err);
     }
 
+    server.route({
+        method: 'GET',
+        path:'/hello', 
+        handler: function (request, reply) {
+            return reply('API Funcionando - Bem Vindos!');
+        }
+    });
+
     server.plugins.db.sequelize
         .sync({force: false })
         .then(() => {
@@ -23,7 +31,7 @@ server.register(Plugins, (err) => {
 
     server.start((err) => {
         if (err) {
-            err.message = `Erro ao starta o SERVER: ${err.message}`;
+            err.message = `Erro ao startar o SERVER: ${err.message}`;
             console.log(err);
         }
 

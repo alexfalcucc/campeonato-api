@@ -3,14 +3,40 @@
 const Boom = require('boom');
 
 exports.register = (server, options, next) => {
-    const Db = server.plugins.db;
+    const db = server.plugins.db;
+
+    const getArbitroCollection = (request, reply) => {
+        db.getModel('Arbitro')
+            .findAll()
+            .then((arbitro) => {
+                if (!arbitro) return reply(Boom.notFound());
+
+                return reply(arbitro);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    const getArbitroById = (request, reply) => {
+        db.getModel('Arbitro')
+            .findById(request.params.id)
+            .then((arbitro) => {
+                if (!arbitro) return reply(Boom.notFound());
+
+                return reply(arbitro);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
 
     const createArbitro = (request, reply) => {
         const arbitro = {
             nome: request.payload.nome
         };
 
-        Db.getModel('Arbitro')
+        db.getModel('Arbitro')
             .create(arbitro)
             .then((created) => {
                 return reply(created);
@@ -21,7 +47,9 @@ exports.register = (server, options, next) => {
     }
 
     server.expose({
-        createArbitro
+        getArbitroCollection,
+        createArbitro,
+        getArbitroById
     });
 
     return next();
