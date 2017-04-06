@@ -6,7 +6,7 @@ const Plugins = require('./plugins');
 
 server.connection({
     host: 'localhost',
-    port: 8000
+    port: process.env.PORT || 8000
 });
 
 server.register(Plugins, (err) => {

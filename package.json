@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/leonardocintra/campeonato-api.git"
   },
+  "engines": {
+    "node": "6.10.2"
+  },
   "keywords": [
     "campeonato"
   ],
