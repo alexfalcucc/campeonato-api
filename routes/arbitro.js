@@ -16,9 +16,7 @@ exports.register = (server, options, next) => {
                 validate: {
                     payload: arbitroShema
                 },
-                handler: createArbitro,
-                tags: ['api'],
-                description: 'Cria um arbitro'
+                handler: createArbitro
             }
         }
     ]);
