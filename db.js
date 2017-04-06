@@ -12,8 +12,9 @@ exports.register = (server, options, next) => {
         var database = process.env.DATABASE_URL || 'campeonatodb'
 
         const sequelize = new Sequelize(database, 'postgres', '', {
-            host: 'localhost',
-            dialect: 'postgres'});
+            dialect: 'postgres',
+            logging: true
+        });
 
         db = {
             sequelize,
