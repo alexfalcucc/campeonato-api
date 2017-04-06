@@ -15,6 +15,12 @@ server.register(Plugins, (err) => {
         console.log(err);
     }
 
+    server.plugins.db.sequelize
+        .sync({force: false })
+        .then(() => {
+            console.log('DB Conectado');
+        });
+
     server.start((err) => {
         if (err) {
             err.message = `Erro ao starta o SERVER: ${err.message}`;
