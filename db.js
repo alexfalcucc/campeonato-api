@@ -10,6 +10,7 @@ exports.register = (server, options, next) => {
     if (!db) {
 
         var database = process.env.DATABASE_URL || 'campeonatodb'
+        console.log(database);
 
         const sequelize = new Sequelize(database, 'postgres', '', {
             dialect: 'postgres'
